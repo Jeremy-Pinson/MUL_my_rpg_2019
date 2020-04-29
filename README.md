@@ -11,4 +11,4 @@ Welcome in French gypsies world! You're Gandalf and your goal is to beat Joe Lop
   We were just laughing about pop culture reference and we talked about Gypsies in France. So we decided to make a RPG in a gypsy world. Then, we told ourselves: "Why not implement some Sci-Fi characters?". We also implement Gandalf as our main character.
 </details>
   
-## We're working on this project and isn't finished at all! For new EPITECH students, do not copy paste this code. You may have trouble and we don't want to be part of theses troubles!
+## We're working on this project and isn't finished at all! To new EPITECH students, do not copy paste this code. You may have trouble and we don't want to be part of theses troubles!
