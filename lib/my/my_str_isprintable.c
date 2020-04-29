@@ -1,20 +1,23 @@
 /*
 ** EPITECH PROJECT, 2019
-** strisprintable
+** my_str_isprintable
 ** File description:
 ** my_str_isprintable
 */
 
-#include <stdbool.h>
+#include "my.h"
 
-bool my_str_isprintable(char const *str)
+int is_printable(char c)
 {
-    int count = 0;
-    while (str[count] != '\0') {
-        if (str[count] < 32 || str[count] > 127) {
-            return 0;
-        }
-        count++;
-    }
-    return 1;
+    return (c >= 32 && c < 127);
+}
+
+int my_str_isprintable(char const *str)
+{
+    int str_len = my_strlen(str);
+
+    for (int i = 0; i < str_len; i++)
+        if (!is_printable(str[i]))
+            return (0);
+    return (1);
 }

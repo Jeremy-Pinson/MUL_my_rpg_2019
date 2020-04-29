@@ -1,22 +1,20 @@
 /*
 ** EPITECH PROJECT, 2019
-** strupcase
+** my_strlowcase
 ** File description:
-** upercase all
+** my_strlowcase
 */
 
-int my_putstr(char const *str);
+#include "my.h"
 
 char *my_strlowcase(char *str)
 {
-    int a = 0;
-    char *output = str;
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (str[a] > 'A' && str[a] < 'Z') {
-            output[a] = str[a] - 32;
+    int str_len = my_strlen(str);
+
+    for (int i = 0; i < str_len; i++) {
+        if (str[i] >= 'A' && str[i] <= 'Z') {
+            str[i] += 32;
         }
-        a++;
     }
-    my_putstr(output);
-    return (output);
+    return (str);
 }

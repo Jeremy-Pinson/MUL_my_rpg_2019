@@ -2,20 +2,15 @@
 ** EPITECH PROJECT, 2019
 ** my_strncpy
 ** File description:
-** cpy addr of
+** my_strncpy
 */
 
-char *my_strncpy(char *dest, const char *src, int n)
+char *my_strncpy(char *dest, char const *src, int n)
 {
-    int count = 0;
-    while (count != n) {
-        if (src[count] != '\0')
-            dest[count] = src[count];
-        else {
-            dest[count] = '\0';
-        }
-        count++;
-    }
-    dest[count] = '\0';
-    return dest;
+    int i = 0;
+
+    for (; i < n; i++)
+        dest[i] = src[i];
+    dest[i] += '\0';
+    return (dest);
 }

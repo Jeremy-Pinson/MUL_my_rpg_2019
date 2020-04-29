@@ -1,15 +1,15 @@
 /*
 ** EPITECH PROJECT, 2019
-** my_strcpy.c
+** my_strcpy
 ** File description:
-** copy string
+** my_strcpy
 */
+
+#include "my.h"
 
 char *my_strcpy(char *dest, char const *src)
 {
-    for (int i = 0; src[i] != '\0'; i++) {
+    for (int i = 0; i <= my_strlen(src); i++)
         dest[i] = src[i];
-    }
-    return dest;
+    return (dest);
 }
-

@@ -1,30 +1,27 @@
 /*
 ** EPITECH PROJECT, 2019
-** my_getnbr
+** my_getnbr.c
 ** File description:
-** return a number
+** my_getnbr.c
 */
 
-#include "../../include/my.h"
-
-bool my_isnum(char c);
-
-int my_getnbr(char *nbr)
+int my_getnbr(char const *str)
 {
-    char nbrstr[my_strlen(nbr) + 1];
-    int i = 0;
-    int len;
-    int multi = 1;
-    int result = 0;
+    long my_nbr = 0;
+    int is_neg = 0;
 
-    my_strcpy(nbrstr, nbr);
-    while (my_isnum(nbrstr[i])) {
-        i++;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if ((str[i] > '9' || str[i] < '0') && str[i] != '-' && str[i] != '+')
+            break;
+        if (str[i] >= '0' && str[i] <= '9') {
+            my_nbr += str[i] - '0';
+            my_nbr *= 10;
+        }
+        if (str[i] == '-')
+            is_neg++;
     }
-    nbrstr[i] = '\0';
-    for (int i = my_strlen(nbrstr); i != 0; i--) {
-        result += (nbrstr[i - 1] - '0') * multi;
-        multi = multi * 10;
-    }
-    return result;
+    if (is_neg % 2 == 0)
+        return (my_nbr/10);
+    else
+        return (-my_nbr/10);
 }

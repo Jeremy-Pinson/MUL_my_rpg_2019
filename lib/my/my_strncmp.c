@@ -1,23 +1,22 @@
 /*
 ** EPITECH PROJECT, 2019
-** my_strcmp
+** my_strncmp
 ** File description:
-** compare lenhgt
+** my_strncmp
 */
+
+#include "my.h"
 
 int my_strncmp(char const *s1, char const *s2, int n)
 {
-    int t1 = 0;
-    int t2 = 0;
-    int bouclea = n;
-    int boucleb = n;
-    for (int i = 0; bouclea != 0; i++) {
-        t1 += s1[i];
-        bouclea--;
+    int i = 0;
+
+    if (n <= 0)
+        return (0);
+    while (*s1 != 0 && *s2 != 0 && *s1 == *s2 && i < n - 1) {
+        s1++;
+        s2++;
+        i++;
     }
-    for (int i = 0; boucleb != 0; i++) {
-        t2 += s2[i];
-        boucleb--;
-    }
-    return (t1 - t2);
+    return (*s1 - *s2);
 }

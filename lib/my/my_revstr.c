@@ -1,27 +1,20 @@
 /*
 ** EPITECH PROJECT, 2019
-** my_evil_str.c
+** my_revstr
 ** File description:
-** print string reverse
+** my_revstr
 */
 
-char *my_revstr(char const *str)
-{
-    int lenght = 0;
-    int p = 0;
-    char *sort;
-    int count = 0;
-    while (str[lenght] != '\0') {
-        lenght++;
-    }
-    p = lenght;
-    lenght++;
-    while (lenght != 0) {
-        sort[count] = str[p];
-        p--;
-        count++;
-        lenght--;
+#include "my.h"
 
+char *my_revstr(char *str)
+{
+    int str_length = my_strlen(str);
+
+    for (int i = 0; i < str_length / 2; i++) {
+        char tmp = str[i];
+        str[i] = str[str_length - 1 - i];
+        str[str_length - 1 - i] = tmp;
     }
-    return (sort);
+    return (str);
 }

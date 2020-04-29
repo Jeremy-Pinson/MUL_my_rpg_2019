@@ -1,19 +1,19 @@
 /*
 ** EPITECH PROJECT, 2019
-** my_putstr.c
+** my_putstr
 ** File description:
-** print string
+** my_putstr
 */
 
-void my_putchar(char c);
+#include "my.h"
 
 int my_putstr(char const *str)
 {
-    int lenght = 0;
-    while (str[lenght] != '\0') {
-        my_putchar(str[lenght]);
-        lenght++;
+    int i = 0;
+
+    while (str[i] != '\0') {
+        my_putchar(str[i]);
+        i++;
     }
-    lenght++;
-    return lenght;
+    return (0);
 }

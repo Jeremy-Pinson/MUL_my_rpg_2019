@@ -1,22 +1,23 @@
 /*
 ** EPITECH PROJECT, 2019
-** Untitled (Workspace)
+** my_str_islower
 ** File description:
 ** my_str_islower
 */
 
-#include <stdbool.h>
+#include "my.h"
 
-bool my_islower(char c);
-
-int my_str_islower(char *str)
+int is_lowercase(char c)
 {
-    int count = 0;
-    while (str[count] != '\0') {
-        if (!my_islower(str[count])) {
-            return 0;
-        }
-        count++;
-    }
-    return 1;
+    return (c >= 'a' && c <= 'z');
+}
+
+int my_str_islower(char const *str)
+{
+    int str_len = my_strlen(str);
+
+    for (int i = 0; i < str_len; i++)
+        if (!is_lowercase(str[i]))
+            return (0);
+    return (1);
 }

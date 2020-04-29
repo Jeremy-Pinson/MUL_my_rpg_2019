@@ -1,12 +1,18 @@
 /*
-** EPITECH PROJECT, 2019
-** 
+** EPITECH PROJECT, 2020
+** MUL_my_rpg_2019
 ** File description:
-** 
+** main
 */
+
+#include "interface.h"
+#include "game.h"
+#include <stdio.h>
 
 int main(void)
 {
-    main_menu();
-    return 0;
+    sfVector2i *rez = launcher_loop();
+    if (rez)
+        return (game(*rez));
+    return (0);
 }

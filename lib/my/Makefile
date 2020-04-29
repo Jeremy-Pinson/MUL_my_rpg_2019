@@ -1,54 +1,72 @@
-##
+##x
 ## EPITECH PROJECT, 2019
-## makefile
+## Makefile
 ## File description:
-## build file
+## libmy Makefile
 ##
 
-SRC		=	my_compute_power_rec.c	\
-			my_compute_square_root.c	\
-			my_find_prime_sup.c	\
-			my_put_nbr.c	\
-			my_getnbr.c	\
-			my_strcapitalize.c	\
-			my_strcmp.c	\
-			my_strlowcase.c	\
-			my_strncmp.c	\
-			my_strupcase.c	\
-			my_isneg.c	\
-			my_is_prime.c	\
-			my_putchar.c	\
-			my_putchar_error.c	\
-			my_putstr.c	\
-			my_putstr_error.c	\
-			my_sort_int_array.c	\
-			my_strcpy.c	\
-			my_strlen.c	\
-			my_strncpy.c	\
-			my_swap.c	\
-			my_islower.c	\
-			my_isupper.c	\
-			my_isalpha.c	\
-			my_str_to_word_array.c	\
-			my_strdup.c
+SRC =	my_getnbr_base.c					\
+		my_getnbr.c							\
+		my_pow.c							\
+		my_put_nbr.c						\
+		my_putchar.c						\
+		my_putnbr_base.c					\
+		my_putstr.c							\
+		my_revstr.c							\
+		my_showstr.c						\
+		my_str_isalpha.c					\
+		my_str_islower.c					\
+		my_str_isnum.c						\
+		my_str_isprintable.c				\
+		my_str_isupper.c					\
+		my_strcat.c							\
+		my_strcmp.c							\
+		my_strcpy.c							\
+		my_strdup.c							\
+		my_strlen.c							\
+		my_strlowcase.c						\
+		my_strncmp.c						\
+		my_strncpy.c						\
+		my_strupcase.c						\
+		printf/get_int_digits.c 			\
+		printf/my_printf.c					\
+		printf/my_put_long.c				\
+		printf/my_put_unbr.c				\
+		printf/my_putnstr.c					\
+		printf/utils.c						\
+		printf/display_types/b_type.c		\
+		printf/display_types/c_type.c		\
+		printf/display_types/i_type.c		\
+		printf/display_types/ld_type.c		\
+		printf/display_types/o_type.c		\
+		printf/display_types/p_type.c		\
+		printf/display_types/percent_type.c	\
+		printf/display_types/s_type.c		\
+		printf/display_types/sp_type.c		\
+		printf/display_types/u_type.c		\
+		printf/display_types/x_type.c		\
+		printf/display_types/xu_type.c		\
 
-OBJ		=	$(SRC:.c=.o)
+OBJ = $(SRC:.c=.o)
 
-NAME		=	libmy.a
+NAME = libmy.a
 
-CC			=	gcc
+LIB = -I include -I printf/include
 
-all:	$(NAME)
+CFLAGS = -O2 -W -Wall -Wextra -Wshadow $(LIB)
 
-$(NAME):	$(OBJ)
+CC = gcc
+
+all:	$(OBJ)
 		ar rc $(NAME) $(OBJ)
+		cp include/my.h ../../include/my.h
 
 clean:
-	rm -f $(OBJ)
+		$(RM) $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+		$(RM) $(NAME)
 
-re:		fclean all
+re: fclean all
 
-.PHONY:		clean fclean re all
+.PHONY: all clean fclean re

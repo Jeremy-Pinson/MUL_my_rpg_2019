@@ -2,14 +2,14 @@
 ** EPITECH PROJECT, 2019
 ** my_strlen
 ** File description:
-** count char
+** my_strlen
 */
 
 int my_strlen(char const *str)
 {
-    int count = 0;
-    while (str[count] != '\0') {
-        count++;
-    }
-    return (count);
+    int i = 0;
+
+    while (str[i] != 0)
+        i++;
+    return (i);
 }

@@ -1,22 +1,23 @@
 /*
 ** EPITECH PROJECT, 2019
-** Untitled (Workspace)
+** my_str_isupper
 ** File description:
 ** my_str_isupper
 */
 
-#include <stdbool.h>
+#include "my.h"
 
-bool my_isupper(char c);
-
-int my_str_isupper(char *str)
+int is_alpha_lowercase(char c)
 {
-    int count = 0;
-    while (str[count] != '\0') {
-        if (!my_isupper(str[count])) {
-            return 0;
-        }
-        count++;
-    }
-    return 1;
+    return (c >= 'A' && c <= 'Z');
+}
+
+int my_str_isupper(char const *str)
+{
+    int str_len = my_strlen(str);
+
+    for (int i = 0; i < str_len; i++)
+        if (!is_alpha_lowercase(str[i]))
+            return (0);
+    return (1);
 }

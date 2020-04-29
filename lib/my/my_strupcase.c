@@ -1,19 +1,20 @@
 /*
 ** EPITECH PROJECT, 2019
-** strupcase
+** my_strupcase
 ** File description:
-** upercase all
+** my_strupcase
 */
+
+#include "my.h"
 
 char *my_strupcase(char *str)
 {
-    int a = 0;
-    char *output = str;
-    for (int i = 0; str[i] != '\0'; i++); {
-        if (str[a] > 'a' && str[a] < 'z') {
-            output[a] = str[a] - 32;
+    int str_len = my_strlen(str);
+
+    for (int i = 0; i < str_len; i++) {
+        if (str[i] >= 'a' && str[i] <= 'z') {
+            str[i] -= 32;
         }
-        a++;
     }
-    return (output);
+    return (str);
 }
