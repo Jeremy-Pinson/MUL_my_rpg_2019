@@ -8,7 +8,7 @@
 #include "interface.h"
 #include "my.h"
 
-void draw_btn(sfRenderWindow *launcher_window ,button_t *btn_list)
+void draw_btn(sfRenderWindow *launcher_window, button_t *btn_list)
 {
     button_t *tmp_list = btn_list;
     while (tmp_list) {

@@ -21,24 +21,3 @@ void change_selector_pos(fight_t *fight)
         pos.y = sfRenderWindow_getSize(fight->win).y / 1.1;
     sfText_setPosition(fight->selector, pos);
 }
-
-void set_selector_pos(fight_t *fight, sfKeyCode key)
-{
-    if (key == sfKeyRight && fight->sel_dir == POS1)
-        fight->sel_dir = POS3;
-    else if (key == sfKeyDown && fight->sel_dir == POS1)
-        fight->sel_dir = POS2;
-    else if (key == sfKeyRight && fight->sel_dir == POS2)
-        fight->sel_dir = POS4;
-    else if (key == sfKeyUp && fight->sel_dir == POS2)
-        fight->sel_dir = POS1;
-    else if (key == sfKeyLeft && fight->sel_dir == POS3)
-        fight->sel_dir = POS1;
-    else if (key == sfKeyDown && fight->sel_dir == POS3)
-        fight->sel_dir = POS4;
-    else if (key == sfKeyLeft && fight->sel_dir == POS4)
-        fight->sel_dir = POS2;
-    else if (key == sfKeyUp && fight->sel_dir == POS4)
-        fight->sel_dir = POS3;
-    change_selector_pos(fight);
-}

@@ -19,6 +19,12 @@ void animate_gandalf(fight_t *fight)
         else
             rect.left = GANDALF_SPR;
         sfSprite_setTextureRect(fight->g_sprite, rect);
+        rect = sfSprite_getTextureRect(fight->enemy);
+        if (rect.left == ENEMY_SPR)
+            rect.left = 0;
+        else
+            rect.left = ENEMY_SPR;
+        sfSprite_setTextureRect(fight->enemy, rect);
     }
 }
 
@@ -52,10 +58,13 @@ void display_elems(fight_t *fight)
 {
     sfRenderWindow_drawSprite(fight->win, fight->b_sprite, NULL);
     sfRenderWindow_drawSprite(fight->win, fight->g_sprite, NULL);
-    sfRenderWindow_drawText(fight->win, fight->atq1, NULL);
-    sfRenderWindow_drawText(fight->win, fight->atq2, NULL);
-    sfRenderWindow_drawText(fight->win, fight->atq3, NULL);
-    sfRenderWindow_drawText(fight->win, fight->atq4, NULL);
+    if (!fight->atq_cooldown) {
+        sfRenderWindow_drawText(fight->win, fight->atq1, NULL);
+        sfRenderWindow_drawText(fight->win, fight->atq2, NULL);
+        sfRenderWindow_drawText(fight->win, fight->atq3, NULL);
+        sfRenderWindow_drawText(fight->win, fight->atq4, NULL);
+        sfRenderWindow_drawText(fight->win, fight->selector, NULL);
+    }
     sfRenderWindow_drawText(fight->win, fight->enemy_text, NULL);
     sfRenderWindow_drawSprite(fight->win, fight->p_life, NULL);
     sfRenderWindow_drawSprite(fight->win, fight->e_life, NULL);
@@ -63,19 +72,22 @@ void display_elems(fight_t *fight)
     sfRenderWindow_drawText(fight->win, fight->pl_text, NULL);
     sfRenderWindow_drawText(fight->win, fight->en_text, NULL);
     sfRenderWindow_drawSprite(fight->win, fight->enemy, NULL);
-    sfRenderWindow_drawText(fight->win, fight->selector, NULL);
+    if (fight->atq_cooldown)
+        sfRenderWindow_drawText(fight->win, fight->fight_infos, NULL);
 }
 
-int start_fight(sfRenderWindow *win, player_t *player, game_obj_t *game)
+int start_fight(sfRenderWindow *win, player_t *player, game_obj_t *game, \
+int enemy)
 {
     sfMusic *music = play_music();
-    fight_t *fight = init_fight(win, player);
+    fight_t *fight = init_fight(win, player, enemy);
     sfRenderWindow_setKeyRepeatEnabled(win, sfFalse);
 
     fight->player = player;
     while (sfRenderWindow_isOpen(win) && fight->game_status == RUNNING) {
         set_life_text(fight, player, 0);
         set_life_text(fight, player, 1);
+        cooldown_check(fight);
         if (handle_events(fight, game))
             return (-1);
         sfRenderWindow_clear(win, sfBlack);

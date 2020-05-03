@@ -11,10 +11,10 @@
 map_obj_t *load_start_map(void)
 {
     map_obj_t *map = malloc(sizeof(map_obj_t));
-    map->location_map = "assets/game/map/map_test/map_test.colbox";
+    map->location_map = "assets/game/map/first_map/first_map.colbox";
     map->buffer_map = load_collision_map(map->location_map);
     sfTexture *texture = sfTexture_createFromFile\
-    ("assets/game/map/map_test/map_test.png", NULL);
+    ("assets/game/map/first_map/first_map.png", NULL);
     map->sprite_map = sfSprite_create();
     map->size = sfTexture_getSize(texture);
     load_event_start_map(map);

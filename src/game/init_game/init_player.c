@@ -28,7 +28,7 @@ player_t *init_player(char ** map_colision)
     sfVector2i player_pos = scan_playerpos(map_colision);
     player->anim_obj = init_anim_player();
     sfSprite_setPosition(player->anim_obj->sprite_one_frame, \
-    (sfVector2f){player_pos.x * 4, player_pos.y * 4});
+    (sfVector2f){player_pos.x * 4 - 10, player_pos.y * 4 - 16});
     player->direction = STAY;
     player->lvl = 1;
     player->atq = 1;
@@ -36,5 +36,7 @@ player_t *init_player(char ** map_colision)
     player->max_pv = 10;
     player->pv = 10;
     player->xp = 0;
+    player->last_action_id = 0;
+    player->next_lvl_100 = 0;
     return (player);
 }

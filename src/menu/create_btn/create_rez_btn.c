@@ -10,7 +10,8 @@
 button_t *hd_btn_create(void)
 {
     button_t *hd_btn = malloc(sizeof(button_t));
-    hd_btn->texture = sfTexture_createFromFile("assets/launcher/play_hd.png", NULL);
+    hd_btn->texture = sfTexture_createFromFile("assets/launcher/play_hd.png", \
+NULL);
     hd_btn->size = (sfVector2f){600, 200};
     hd_btn->rectangle_shape = sfRectangleShape_create();
     sfRectangleShape_setTexture(hd_btn->rectangle_shape, \
@@ -37,7 +38,7 @@ button_t *fhd_btn_create(void)
     sfRectangleShape_setTexture(fhd_btn->rectangle_shape, \
     fhd_btn->texture, sfFalse);
     sfRectangleShape_setPosition(fhd_btn->rectangle_shape, \
-    (sfVector2f){1920 / 2.4, 1080 / 3.5});
+    (sfVector2f){1920 / 1.4, 1080 / 3.5});
     sfRectangleShape_setSize(fhd_btn->rectangle_shape, \
     (sfVector2f){400, 150});
     sfRectangleShape_setTextureRect(fhd_btn->rectangle_shape, \

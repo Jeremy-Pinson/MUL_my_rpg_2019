@@ -14,7 +14,8 @@ void apply_move(int sprite, sfVector2f move_or, char *arround, game_obj_t *game)
         sfSprite_move(game->player->anim_obj->sprite_one_frame, move_or);
         game->player->direction = sprite;
     } else if (is_alphabetical(arround[sprite])) {
-            game->actual_map->event[arround[sprite] - 'a'](game);
+        game->actual_map->event[arround[sprite] - 'a'](game);
+        update_hud(game);
     }
 }
 
@@ -30,15 +31,23 @@ char *get_arround_evt(map_obj_t *map)
     return (arround);
 }
 
+float compute_speed(game_obj_t *game)
+{
+    sfInt32 buff = sfTime_asMilliseconds(sfClock_getElapsedTime\
+    (game->move_clock));
+    sfClock_restart(game->move_clock);
+    return (0.1 * buff);
+}
+
 void move_player(game_obj_t *game)
 {
     static char *arround_evt;
     arround_evt = get_arround_evt(game->actual_map);
-    static int speed;
-    speed = 2;
+    static float speed;
+    speed = compute_speed(game);
     game->player->direction = STAY;
     if (sfKeyboard_isKeyPressed(sfKeyLShift))
-        speed = 3;
+        speed *= 2;
     if (sfKeyboard_isKeyPressed(sfKeyUp))
         apply_move(WALK_UP, (sfVector2f){0, 0 - speed}, arround_evt, game);
     if (sfKeyboard_isKeyPressed(sfKeyDown))

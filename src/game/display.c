@@ -38,16 +38,15 @@ void draw_gameplay_view(sfRenderWindow *window, game_obj_t* game)
     load_player_view(window, pos_player);
     sfRenderWindow_clear(window, sfBlack);
     sfRenderWindow_drawSprite(window, game->actual_map->sprite_map, NULL);
-    sfRenderWindow_drawSprite\
-    (window, game->actual_map->entity[0]->anim->sprite_one_frame, NULL);
+    for (int i = 0; game->actual_map->entity[i]; i++) {
+        sfRenderWindow_drawSprite\
+        (window, game->actual_map->entity[i]->anim->sprite_one_frame, NULL);
+    }
     sfRenderWindow_drawSprite\
     (window, game->player->anim_obj->sprite_one_frame, NULL);
-
-    if (game->notif->have_notif) {
-        game->notif->have_notif = false;
-        sfSound_play(game->notif->sound);
-        sfRenderWindow_drawText(window, game->notif->text, NULL);
-    }
+    sfRenderWindow_setView(window, sfRenderWindow_getDefaultView(window));
+    print_hud(game);
+    print_dialogue_box(game);
 }
 
 void draw_minimap_view(sfRenderWindow *window, game_obj_t* game)

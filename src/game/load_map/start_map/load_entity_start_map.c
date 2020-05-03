@@ -25,15 +25,22 @@ entity_t *load_lopez(sfVector2f pos)
     (anim_lopez->sprite_one_frame, anim_lopez->sprite_sheet, sfFalse);
     sfSprite_setTextureRect(anim_lopez->sprite_one_frame, \
     (sfIntRect){0, 0, anim_lopez->width_height_frame.x, \
-    anim_lopez->width_height_frame.x});
-    sfSprite_setPosition(anim_lopez->sprite_one_frame, (sfVector2f){370, 70});
+anim_lopez->width_height_frame.x});
+    sfSprite_setPosition(anim_lopez->sprite_one_frame, pos);
     lopez->anim = anim_lopez;
     return (lopez);
 }
 
 void load_entity_start_map(map_obj_t *map)
 {
-    map->entity = malloc(sizeof(entity_t) * 2);
-    map->entity[0] = load_lopez((sfVector2f){4 * 90, 16 * 4});
-    map->entity[1] = NULL;
+    int nb_entity = 6;
+    map->entity = malloc(sizeof(entity_t) * (nb_entity + 1));
+
+    map->entity[0] = (entity_t *)load_lopez(joe);
+    map->entity[1] = (entity_t *)load_lopez(kenji);
+    map->entity[2] = (entity_t *)load_lopez(michael);
+    map->entity[3] = (entity_t *)load_lopez(consin_mich);
+    map->entity[4] = (entity_t *)load_lopez(bernard);
+    map->entity[5] = (entity_t *)load_lopez(chuck);
+    map->entity[6] = (entity_t *)NULL;
 }

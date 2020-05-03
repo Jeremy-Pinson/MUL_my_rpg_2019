@@ -44,21 +44,29 @@ void reset_texture_rect(sfRectangleShape *btn_shape)
     sfRectangleShape_setTextureRect(btn_shape, rect);
 }
 
+bool condition_button(button_t *list, sfEvent *event, launcher_t \
+*launcher, sfVector2i mouse_pos)
+{
+    while (list) {
+        reset_texture_rect(list->rectangle_shape);
+        if (button_overfly(list, mouse_pos, event, launcher))
+            return (true);
+        else if (event->type == sfEvtClosed) {
+            launcher->game_rez = NULL;
+            return (true);
+        }
+        list = list->next;
+    }
+    return (false);
+}
+
 bool manage_button_evt(launcher_t *launcher, sfEvent *event)
 {
     button_t *tmp_list = launcher->btn_list;
     sfVector2i mouse_pos = sfMouse_getPosition((sfWindow *)launcher->window);
     while (sfRenderWindow_pollEvent(launcher->window, event)){
-        while (tmp_list) {
-            reset_texture_rect(tmp_list->rectangle_shape);
-            if (button_overfly(tmp_list, mouse_pos, event, launcher))
-                return (true);
-            else if (event->type == sfEvtClosed) {
-                launcher->game_rez = NULL;
-                return (true);
-            }
-            tmp_list = tmp_list->next;
-        }
+        if (condition_button(tmp_list, event, launcher, mouse_pos))
+            return (true);
     }
     return (false);
 }

@@ -10,6 +10,7 @@
 
 int event_test(game_obj_t *game)
 {
+    game->player->last_action_id = 1;
     my_putstr("event declencher\n");
     return (0);
 }

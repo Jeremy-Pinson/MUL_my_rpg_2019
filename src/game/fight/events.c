@@ -13,7 +13,7 @@ void handle_keys(fight_t *fight, sfKeyCode key_code)
 {
     if (key_code == sfKeyEnter)
         use_attack(fight);
-    else
+    else if (!fight->atq_cooldown)
         set_selector_pos(fight, key_code);
 }
 

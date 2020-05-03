@@ -8,11 +8,13 @@
 #include "fight.h"
 #include "game.h"
 
-int run_combat(game_obj_t *game)
+int run_combat(game_obj_t *game, int enemy)
 {
     sfRenderWindow_setView(game->window, \
     sfRenderWindow_getDefaultView(game->window));
-    if (start_fight(game->window, game->player, game))
+    if (start_fight(game->window, game->player, game, enemy)) {
         event_addxp(game);
+        return (1);
+    }
     return (0);
 }
