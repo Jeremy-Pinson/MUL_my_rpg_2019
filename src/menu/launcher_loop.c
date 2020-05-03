@@ -15,8 +15,8 @@
 
 sfRectangleShape *create_button(void)
 {
-    sfTexture *texture = sfTexture_createFromFile("assets/launcher/htp_btn.png", \
-NULL);
+    sfTexture *texture = sfTexture_createFromFile\
+("assets/launcher/htp_btn.png", NULL);
     sfVector2f size = (sfVector2f){600, 200};
     sfRectangleShape *rectangle_shape = sfRectangleShape_create();
     sfRectangleShape_setTexture(rectangle_shape, texture, sfFalse);
