@@ -1,14 +1,39 @@
 # MUL_my_rpg_2019
-Epitech graphical project
 
-EPITECH RPG Project
+My_RPG project is an EPITECH Graphical Project.
 
-Welcome in French gypsies world! You're Gandalf and your goal is to beat Joe Lopez, a famous french gypsy, by following quests and loot items on your ennemies!
+## Before continuing...
 
-## Q&A
-<details>
-  <summary>How this idea comes to your mind?</summary>
-  We were just laughing about pop culture reference and we talked about Gypsies in France. So we decided to make a RPG in a gypsy world. Then, we told ourselves: "Why not implement some Sci-Fi characters?". We also implement Gandalf as our main character.
-</details>
-  
-## We're working on this project and isn't finished at all! To new EPITECH students, do not copy paste this code. You may have trouble and we don't want to be part of theses troubles!
+This project is an EPITECH Project. If you are an EPITECH student, move out the way! Nothing to see here...
+If you're not, not worries! You're welcome here!
+
+### Prerequisites
+
+To compile this, you'll need:
+
+* [CSFML framework](https://www.sfml-dev.org/download/csfml/)
+
+### Building program
+
+RPG is using a Makefile. You can build the project by typing:
+```
+$> make
+```
+
+Then to launch the program:
+```
+$> ./my_rpg
+```
+
+### Coding Style
+
+RPG code is bound to **_EPITECH C Coding Style_**.
+
+## Authors
+
+* **Jérémy Pinson** - *Game engine* - [Jeremy-Pinson](https://github.com/Jeremy-Pinson)
+* **Marius Glo** - *Fight system* - [mgl](https://github.com/mgl)
+* **Arthur Adam** - *Graphical Identity / Menus handling* - [0Nom4D](https://github.com/0Nom4D)
+* **Simon Thibaud** - *Graphical Identity* - [SimonTHD](https://github.com/SimonTHD)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
