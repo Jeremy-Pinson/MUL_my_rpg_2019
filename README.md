@@ -36,4 +36,4 @@ RPG code is bound to **_EPITECH C Coding Style_**.
 * **Arthur Adam** - *Graphical Identity / Menus handling* - [0Nom4D](https://github.com/0Nom4D)
 * **Simon Thibaud** - *Graphical Identity* - [SimonTHD](https://github.com/SimonTHD)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Jeremy-Pinson/MUL_my_rpg_2019/graphs/contributors) who participated in this project.
