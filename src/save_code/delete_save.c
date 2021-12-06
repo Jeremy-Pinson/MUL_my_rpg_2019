@@ -11,6 +11,8 @@
 
 void delete_save(void)
 {
+    /*
     remove(player_save_path);
     remove(quest_save_path);
+    */
 }

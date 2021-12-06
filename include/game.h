@@ -141,13 +141,13 @@ extern const char quest_4_dialogue[];
 extern const char quest_4_2_title[];
 extern const char quest_4_2_describe[];
 extern const char quest_4_2_dialogue[];
-const sfVector2f joe;
-const sfVector2f kenji;
-const sfVector2f michael;
-const sfVector2f consin_mich;
-const sfVector2f bernard;
-const sfVector2f chuck;
-const bool debug_mode;
+extern const sfVector2f joe;
+extern const sfVector2f kenji;
+extern const sfVector2f michael;
+extern const sfVector2f consin_mich;
+extern const sfVector2f bernard;
+extern const sfVector2f chuck;
+extern const bool debug_mode;
 
 struct item_s {
     sfSprite *item_sprite;

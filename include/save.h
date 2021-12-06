@@ -12,8 +12,8 @@
 
 #include <stdbool.h>
 
-char player_save_path[17];
-char quest_save_path[16];
+//char player_save_path[17];
+//char quest_save_path[16];
 
 bool if_save(void);
 void delete_save(void);

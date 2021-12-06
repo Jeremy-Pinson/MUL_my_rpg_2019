@@ -10,16 +10,19 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-char player_save_path[] = "save/player.save";
-char quest_save_path[] = "save/quest.save";
+//char player_save_path[] = "save/player.save";
+//char quest_save_path[] = "save/quest.save";
 
 bool if_file(char *path)
 {
+    /*
     struct stat buffer;
     return (stat(path, &buffer) == 0);
+    */
 }
 
 bool if_save(void)
 {
-    return (if_file(player_save_path) & if_file(quest_save_path));
+    
+    //return (if_file(player_save_path) & if_file(quest_save_path));
 }

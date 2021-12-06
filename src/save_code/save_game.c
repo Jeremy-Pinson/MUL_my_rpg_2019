@@ -13,6 +13,7 @@
 
 bool save_game(game_obj_t *game)
 {
+    /*
     int player_fd;
     int quest_fd;
     if ((player_fd = open(player_save_path, O_CREAT | O_WRONLY)) == -1)
@@ -27,5 +28,6 @@ bool save_game(game_obj_t *game)
     close(player_fd);
     close(quest_fd);
     my_putstr("game save!\n");
+    */
     return (true);
 }

@@ -13,6 +13,7 @@
 
 bool load_save(game_obj_t *game)
 {
+    /*
     int player_fd;
     int quest_fd;
 
@@ -26,5 +27,6 @@ bool load_save(game_obj_t *game)
         return (false);
     close(player_fd);
     close(quest_fd);
+    */
     return (true);
 }
